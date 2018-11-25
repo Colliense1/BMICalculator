@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="lLayoutCalculateBodymi">false</item>
+    <item type="id" name="main_layout">false</item>
+    <item type="id" name="toolbar">false</item>
+    <item type="id" name="textViewBmiHeight">false</item>
+    <item type="id" name="editTextHeightFeet">false</item>
+    <item type="id" name="editTextHeightInches">false</item>
+    <item type="id" name="textViewBmiWeight">false</item>
+    <item type="id" name="editTextWeightKg">false</item>
+    <item type="id" name="textViewBmiCalculate">false</item>
+
+    <item type="id" name="textViewBmiIndex">false</item>
+    <item type="id" name="textViewBmiStatus">false</item>
+    <item type="id" name="textViewOkay">false</item>
+
+</resources>
