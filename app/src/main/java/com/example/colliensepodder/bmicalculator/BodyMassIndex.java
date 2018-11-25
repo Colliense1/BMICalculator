@@ -101,6 +101,7 @@ public class BodyMassIndex extends AppCompatActivity {
 
         public static Bmi getBmi(String height, String feet, String kg) {
 
+
             double height_feet = Double.parseDouble(height);
             double height_inch = Double.parseDouble(feet);
             double weight_kg = Double.parseDouble(kg);
@@ -122,7 +123,6 @@ public class BodyMassIndex extends AppCompatActivity {
             str23.healthStatusText = HEALTH_STATUS[str23.healthStatusIndex];
             return str23;
         }
-
     }
 
     @Override
