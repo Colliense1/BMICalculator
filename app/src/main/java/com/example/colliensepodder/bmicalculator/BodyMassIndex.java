@@ -62,32 +62,38 @@ public class BodyMassIndex extends AppCompatActivity {
         lLayoutCalculateBodymi.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View v) {
-                editTextHeightFeet = findViewById(R.id.editTextHeightFeet);
-                BMICalculator.Bmi bmi = BMICalculator.getBmi(BodyMassIndex.this.editTextHeightFeet.
-                        getText().toString().trim(), BodyMassIndex.this.editTextHeightInches.
-                        getText().toString().trim(), BodyMassIndex.this.editTextWeightKg.
-                        getText().toString().trim());
-                android.view.View inflate = getLayoutInflater().inflate(R.layout.dialog_bmi_calculation_results, null);
-                final android.support.v7.app.AlertDialog create = new android.support.v7.app.AlertDialog.Builder(BodyMassIndex.this).setView(inflate).create();
-                ((TextView) inflate.findViewById(R.id.textViewBmiIndex)).setText(bmi.bmiIndex);
-                ((TextView) inflate.findViewById(R.id.textViewBmiStatus)).setText(bmi.healthStatusText);
-                TextView textView = (TextView) inflate.findViewById(R.id.textViewBmiIndex);
-                int i = bmi.healthStatusIndex;
-                int i2 = R.color.REDlight;
-                textView.setTextColor(android.support.v4.content.ContextCompat.getColor(BodyMassIndex.this, i == 1 ?
-                        R.color.green :
-                        R.color.REDlight));
-                textView = (TextView) inflate.findViewById(R.id.textViewBmiStatus);
-                if (bmi.healthStatusIndex == 1) {
-                    i2 = R.color.green;
-                }
-                textView.setTextColor(android.support.v4.content.ContextCompat.getColor(BodyMassIndex.this, i2));
-                inflate.findViewById(R.id.textViewOkay).setOnClickListener(new android.view.View.OnClickListener() {
-                    public void onClick(android.view.View view) {
-                        create.dismiss();
+
+                if (editTextWeightKg.getText().toString().equals("")) {
+                    editTextWeightKg.setError("This field can't be empty");
+                    return;
+                } else {
+                    editTextHeightFeet = findViewById(R.id.editTextHeightFeet);
+                    BMICalculator.Bmi bmi = BMICalculator.getBmi(BodyMassIndex.this.editTextHeightFeet.
+                            getText().toString().trim(), BodyMassIndex.this.editTextHeightInches.
+                            getText().toString().trim(), BodyMassIndex.this.editTextWeightKg.
+                            getText().toString().trim());
+                    android.view.View inflate = getLayoutInflater().inflate(R.layout.dialog_bmi_calculation_results, null);
+                    final android.support.v7.app.AlertDialog create = new android.support.v7.app.AlertDialog.Builder(BodyMassIndex.this).setView(inflate).create();
+                    ((TextView) inflate.findViewById(R.id.textViewBmiIndex)).setText(bmi.bmiIndex);
+                    ((TextView) inflate.findViewById(R.id.textViewBmiStatus)).setText(bmi.healthStatusText);
+                    TextView textView = (TextView) inflate.findViewById(R.id.textViewBmiIndex);
+                    int i = bmi.healthStatusIndex;
+                    int i2 = R.color.REDlight;
+                    textView.setTextColor(android.support.v4.content.ContextCompat.getColor(BodyMassIndex.this, i == 1 ?
+                            R.color.green :
+                            R.color.REDlight));
+                    textView = (TextView) inflate.findViewById(R.id.textViewBmiStatus);
+                    if (bmi.healthStatusIndex == 1) {
+                        i2 = R.color.green;
                     }
-                });
-                create.show();
+                    textView.setTextColor(android.support.v4.content.ContextCompat.getColor(BodyMassIndex.this, i2));
+                    inflate.findViewById(R.id.textViewOkay).setOnClickListener(new android.view.View.OnClickListener() {
+                        public void onClick(android.view.View view) {
+                            create.dismiss();
+                        }
+                    });
+                    create.show();
+                }
             }
         });
 
