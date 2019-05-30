@@ -18,6 +18,8 @@ public class BodyMassIndex extends AppCompatActivity {
     TextView textViewBmiHeight;
     TextView textViewBmiWeight;
     android.widget.LinearLayout lLayoutCalculateBodymi;
+    public static final String EVENT_PARAM_VALUE_YES = "1";
+    public static final String EVENT_PARAM_VALUE_NO = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class BodyMassIndex extends AppCompatActivity {
         editTextHeightFeet.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View v) {
-                final CharSequence[] charSequenceArr = new CharSequence[]{com.facebook.appevents.AppEventsConstants.EVENT_PARAM_VALUE_YES, "2", "3", "4", "5", "6", "7", "8"};
+                final CharSequence[] charSequenceArr = new CharSequence[]{EVENT_PARAM_VALUE_YES, "2", "3", "4", "5", "6", "7", "8"};
                 new android.support.v7.app.AlertDialog.Builder(BodyMassIndex.this).setTitle((CharSequence) "Select height in feet").setItems(charSequenceArr, new android.content.DialogInterface.OnClickListener() {
                     public void onClick(android.content.DialogInterface dialogInterface, int i) {
                         BodyMassIndex.this.editTextHeightFeet.setText(charSequenceArr[i]);
@@ -50,7 +52,7 @@ public class BodyMassIndex extends AppCompatActivity {
             @Override
             public void onClick(android.view.View v) {
 
-                final CharSequence[] charSequenceArr = new CharSequence[]{com.facebook.appevents.AppEventsConstants.EVENT_PARAM_VALUE_NO, com.facebook.appevents.AppEventsConstants.EVENT_PARAM_VALUE_YES, "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+                final CharSequence[] charSequenceArr = new CharSequence[]{EVENT_PARAM_VALUE_NO,EVENT_PARAM_VALUE_YES, "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
                 new android.support.v7.app.AlertDialog.Builder(BodyMassIndex.this).setTitle((CharSequence) "Select height in inches").setItems(charSequenceArr, new android.content.DialogInterface.OnClickListener() {
                     public void onClick(android.content.DialogInterface dialogInterface, int i) {
                         BodyMassIndex.this.editTextHeightInches.setText(charSequenceArr[i]);
